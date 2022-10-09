@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let user = {name: "Andrew", biography: "I am a professor in Engineering"}
+let user = {name: "", biography: ""}
 
 
 /* GET users listing. */
