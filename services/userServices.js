@@ -14,6 +14,7 @@ const createUser = async(user)=>{
             email:user.email,
             password:user.password,
             name:user.name,
+            bio: user.bio
         })
         try {
             const saveUser = await newUser.save()
@@ -41,5 +42,20 @@ const login = async(user)=>{
     else throw new Error("Invalid email or password")
 }
 
+const getAllUsers = async()=>{
+    const getUsers = await userModel.find()
+    return getUsers
+}
+
+const updateUser = async(id, data)=>{
+    const filter = {_id: id}
+    const update = {name: data.name, bio: data.bio}
+    const updateUser = await userModel.findOneAndUpdate(filter, update, {new: true})
+    return updateUser.toJSON()
+}
+
+
 module.exports.createUser=createUser
 module.exports.login=login
+module.exports.getAllUsers=getAllUsers
+module.exports.updateUser=updateUser
