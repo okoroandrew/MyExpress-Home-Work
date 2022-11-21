@@ -55,4 +55,9 @@ router.put('/update-user', passport.authenticate('jwt',{session:false}), async f
   }
 })
 
+router.delete('/delete-users', async (req, res)=> {
+  const deleteUser = await userService.deleteUsers
+  res.status(200).json({message: 'success', data: deleteUser})
+})
+
 module.exports = router;

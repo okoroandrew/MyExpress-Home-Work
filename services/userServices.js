@@ -54,8 +54,14 @@ const updateUser = async(id, data)=>{
     return updateUser.toJSON()
 }
 
+const deleteUsers = async()=>{
+    const deleteU = await userModel.delete()
+    return deleteU
+}
+
 
 module.exports.createUser=createUser
 module.exports.login=login
 module.exports.getAllUsers=getAllUsers
 module.exports.updateUser=updateUser
+module.exports.deleteUsers=deleteUsers
